@@ -1,2 +1,10 @@
 .vscode
 airflow/dags/__pycache__/
+airflow/logs/*
+!airflow/logs/.gitkeep
+mongo_data/*
+!mongo_data/.gitkeep
+airflow/ml_model_env/saved_model/*
+!airflow/ml_model_env/saved_model/.gitkeep
+faiss_data/my_index.index
+/nb.ipynb
