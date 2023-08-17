@@ -14,6 +14,5 @@ COPY requirements.txt .
 RUN conda install -c conda-forge --file requirements.txt
 
 COPY . .
-COPY faiss_data/ /app/saved
 
 CMD ["python", "main.py"]

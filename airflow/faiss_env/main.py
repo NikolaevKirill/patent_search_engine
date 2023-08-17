@@ -19,7 +19,7 @@ def status():
 @app.route("/build_index", methods=["POST"])
 def build_index():
     inp = request.get_json()
-    vectors = np.asarray(json.loads(inp["vectors"])).(np.float32)
+    vectors = np.asarray(json.loads(inp["vectors"])).astype(np.float32)
     print(vectors, vectors.shape, inp)
     dimension = vectors.shape[1]
     index = faiss.IndexFlatL2(dimension)
