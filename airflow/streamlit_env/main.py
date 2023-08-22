@@ -19,7 +19,7 @@ if title:
 
     tr = lambda x: json.dumps(x.tolist())
 
-    option = st.selectbox("How much patents?", ("5", "20", "25", "50", "75"))
+    option = st.selectbox("How much patents?", ("5", "10", "25", "50", "150"))
     query_in_faiss = {"query_vector": tr(query_vec), "k": int(option)}
     response = requests.post(faiss_url, json=query_in_faiss)
     print(response)
