@@ -43,7 +43,7 @@ if title:
     numbers = np.array(numbers)
 
     df = pd.DataFrame(
-        np.c_[indices, numbers, distances], columns=["index", "№_", "distance"]
+        np.c_[indices, numbers, distances], columns=["index", "№", "distance"]
     )
     st.table(df)
     mongo_client.close()
