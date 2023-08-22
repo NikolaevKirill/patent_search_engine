@@ -19,8 +19,8 @@ if title:
 
     tr = lambda x: json.dumps(x.tolist())
 
-    option = st.selectbox("How much patents?", ("5", "10", "25", "50", "75"))
-    query_in_faiss = {"query_vector": tr(query_vec), "k": int(option)}
+    option = st.selectbox("How much patents?", ("5", "10", "25", "50", "80"))
+    query_in_faiss = {"query_vector": tr(query_vec), "k": int(option) + 1}
     response = requests.post(faiss_url, json=query_in_faiss)
     print(response)
     response = response.json()
