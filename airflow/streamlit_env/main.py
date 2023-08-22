@@ -19,8 +19,8 @@ if title:
 
     tr = lambda x: json.dumps(x.tolist())
 
-    option = st.selectbox("How much patents?", ("5", "10", "25", "50", "75"))
-    query_in_faiss = {"query_vector": tr(query_vec), "k": int(option)}
+    option = st.selectbox("How much patents?", ("5", "20", "25", "50", "75"))
+    query_in_faiss = {"query_vector": tr(query_vec), "k": int(option) - 1}
     response = requests.post(faiss_url, json=query_in_faiss)
     print(response)
     response = response.json()
@@ -43,7 +43,7 @@ if title:
     numbers = np.array(numbers)
 
     df = pd.DataFrame(
-        np.c_[indices, numbers, distances], columns=["index", "№", "distance"]
+        np.c_[indices, numbers, distances], columns=["index", "№_", "distance"]
     )
     st.table(df)
     mongo_client.close()
